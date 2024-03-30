@@ -12,9 +12,12 @@ export default function InputSearch() {
     if (e.key === "Enter" || e.type === "click") {
       e.preventDefault();
       const keyword = searchRef.current.value;
-      router.push(`/search/${keyword}`);
+      if (!keyword) {
+        return router.push(`/`);
+      } else {
+        router.push(`/search/${keyword}`);
+      }
     }
-    // e.preventDefault();
   };
 
   return (
