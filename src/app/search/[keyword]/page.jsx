@@ -1,6 +1,6 @@
 import AnimeList from "@/components/AnimeList";
 import Header from "@/components/AnimeList/Header";
-import { getAnimeResponse } from "@/app/library/api-lib";
+import { getAnimeResponse } from "@/library/api-lib";
 
 export default async function Page({ params }) {
   const { keyword } = params;
