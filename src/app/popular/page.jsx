@@ -19,7 +19,7 @@ export default function Page() {
   }, [page]);
 
   return (
-    <div className="p-5">
+    <div>
       <Header title={`Popular Anime #${page}`} />
       <AnimeList api={topAnime} />
       <Pagination page={page} lastPage={topAnime.pagination?.last_visible_page} setPage={setPage} />

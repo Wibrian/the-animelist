@@ -1,5 +1,5 @@
-export async function getAnimeResponse(resource, query) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`);
+export async function getAnimeResponse(resource) {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}`);
   const anime = await response.json();
   return anime;
 }

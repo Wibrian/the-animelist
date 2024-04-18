@@ -21,11 +21,20 @@ export default function InputSearch() {
   };
 
   return (
-    <div className="relative">
-      <input type="text" placeholder="Search Anime..." className="w-full p-2 rounded-md" ref={searchRef} onKeyDown={handleSearchInput} />
-      <button className="absolute top-2 end-2" onClick={handleSearchInput}>
-        <MagnifyingGlass size={24} />
-      </button>
+    <div className="form-control dropdown">
+      <div className="dropdown dropdown-end">
+        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+          <div className="indicator">
+            <MagnifyingGlass size={20} weight="bold" />
+          </div>
+        </div>
+        <div tabIndex={0} className="mt-4 z-[1] card card-compact dropdown-content w-56 bg-none shadow">
+          <div className="p-2rounded-xl">
+            <input type="text" placeholder="Search Anime..." className="input input-bordered w-full bg-neutral h-10" ref={searchRef} onKeyDown={handleSearchInput} />
+            {/* can add some button element here with "onClick={inputSearch} */}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

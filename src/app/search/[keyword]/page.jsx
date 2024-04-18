@@ -9,14 +9,12 @@ export default async function Page({ params }) {
   // const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${decodedKeyword}`);
   // const searchAnime = await response.json();
 
-  const searchAnime = await getAnimeResponse("anime", `q=${decodedKeyword}`);
+  const searchAnime = await getAnimeResponse(`anime?q=${decodedKeyword}&sfw=true`);
 
   return (
-    <main className="p-5">
-      <section>
-        <Header title={`Search result of ${decodedKeyword}`} />
-        <AnimeList api={searchAnime} />
-      </section>
-    </main>
+    <section>
+      <Header title={`Search result of "${decodedKeyword}"`} />
+      <AnimeList api={searchAnime} />
+    </section>
   );
 }

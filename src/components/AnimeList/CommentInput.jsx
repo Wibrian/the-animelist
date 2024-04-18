@@ -32,18 +32,23 @@ export default function CommentInput({ anime_mal_id, user_email, username, anime
   };
 
   return (
-    <div className="text-white w-full">
-      {isCreated && <p className="text-white">Post sent...</p>}
-      <textarea onChange={handleInput} value={comment} className="w-full h-32 p-3 text-black" />
+    <>
+      <label className="form-control">
+        <div className="label">
+          {isCreated ? <span className="label-text">Comment Sent...</span> : <span className="label-text">Comment Here...</span>}
+          <span className="label-text-alt">Comment at least more than 5 characters to post ⸜(｡&gt; ᵕ &lt; )⸝♡</span>
+        </div>
+        <textarea onChange={handleInput} value={comment} className="textarea textarea-bordered hover:textarea-info h-24 rounded transition-all" placeholder=". . . ."></textarea>
+      </label>
       {comment.length <= 5 || comment.trim() === "" ? (
-        <button onClick={handlePost} className="px-3 py-2 bg-blue-400 rounded text-gray-600" disabled>
+        <button className="btn btn-ghost mt-2" disabled>
           Post Comment
         </button>
       ) : (
-        <button onClick={handlePost} className="px-3 py-2 bg-blue-400 rounded">
+        <button onClick={handlePost} className="btn btn-neutral hover:btn-info mt-2">
           Post Comment
         </button>
       )}
-    </div>
+    </>
   );
 }

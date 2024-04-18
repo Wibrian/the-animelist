@@ -3,20 +3,24 @@ import Header from "@/components/AnimeList/Header";
 import { getAnimeResponse, getNestedAnimeResponse, reproduce } from "@/library/api-lib";
 
 export default async function Page() {
-  const topAnime = await getAnimeResponse("top/anime", "limit=10");
+  const topAnime = await getAnimeResponse("top/anime?limit=10");
+  const thisSeason = await getAnimeResponse("seasons/now?limit=5");
   let recommendAnime = await getNestedAnimeResponse("recommendations/anime", "entry");
   // recommendAnime = { data: recommendAnime.slice(0, 4) };
-  // console.log(recommendAnime);
-  recommendAnime = reproduce(recommendAnime, 4);
+  recommendAnime = reproduce(recommendAnime, 5);
 
   return (
-    <main className="p-5">
+    <main>
       <section>
         <Header title="Top 10 Popular Anime" linkHref="/popular" linkTitle="See All..." />
         <AnimeList api={topAnime} />
       </section>
       <section>
-        <Header title="Recommended Anime" linkHref="/popular" />
+        <Header title="This Season" linkHref="/" />
+        <AnimeList api={thisSeason} />
+      </section>
+      <section>
+        <Header title="Anime Recommendation" />
         <AnimeList api={recommendAnime} />
       </section>
     </main>

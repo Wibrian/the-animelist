@@ -12,28 +12,28 @@ export default function VideoPlayer({ youTubeId }) {
   };
 
   const option = {
-    width: "400",
-    height: "220",
+    width: "300",
+    height: "200",
   };
 
   const Player = () => {
     return (
-      <div className="fixed bottom-2 right-2">
-        <button className="text-white float-right mb-1" onClick={handleVideoPlayer}>
-          <XSquare size={32} weight="fill" />
+      <div className="fixed flex flex-col gap-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 bg-gray-600 p-3 rounded">
+        <iframe src={youTubeId} frameborder="0" allowFullScreen className="rounded sm:w-[400px] sm:h-[300px] md:w-[600px] "></iframe>
+        <button className="btn btn-neutral hover:btn-error rounded" onClick={handleVideoPlayer}>
+          Close
         </button>
-        <YouTube videoId={youTubeId} onReady={(e) => e.target.pauseVideo()} opts={option} />
       </div>
     );
   };
 
   const ButtonPlayer = () => {
     return (
-      <button onClick={handleVideoPlayer} className="fixed bottom-5 right-5 bg-slate-50 text-black">
-        Lihat Trailer
+      <button onClick={handleVideoPlayer} className="badge badge-neutral hover:badge-warning rounded">
+        See Trailer
       </button>
     );
   };
 
-  return isOpen ? <Player /> : <ButtonPlayer />;
+  return isOpen ? <ButtonPlayer /> : <Player />;
 }

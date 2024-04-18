@@ -4,11 +4,13 @@ import UserButton from "./UserButton";
 
 export default function Navbar() {
   return (
-    <header className="bg-blue-400">
-      <div className="flex md:flex-row flex-col justify-between px-5 py-4 gap-4 items-center">
-        <Link href="/" className="font-bold text-2xl text-white">
-          ANIME LIST
+    <header className="navbar px-5 shadow-white border-b border-slate-600 max-h-[32px] md:max-h-[64px]">
+      <div className="flex-1">
+        <Link href="/" className="btn btn-ghost lg:text-xl p-0 hover:bg-transparent hover:text-white">
+          NEXT Anime List
         </Link>
+      </div>
+      <div className="flex-none gap-2">
         <InputSearch />
         <UserButton />
       </div>

@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { Heart } from "@phosphor-icons/react";
 
 export default function CollectionButton({ anime_mal_id, user_email, anime_image, anime_title }) {
   const [isCreated, setIsCreated] = useState(false);
-  const handleCollection = async (e) => {
-    e.preventDefault();
 
+  const handleCollection = async () => {
     const data = { anime_mal_id, user_email, anime_image, anime_title };
 
     const response = await fetch("/api/v1/collection", {
@@ -21,12 +21,21 @@ export default function CollectionButton({ anime_mal_id, user_email, anime_image
     }
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    handleCollection();
+  };
+
   return (
     <div>
       {isCreated ? (
-        <p className="text-white">Added to Collection</p>
+        <button className="btn btn-primary rounded w-full text-xs" disabled>
+          <Heart size={14} weight="fill" />
+          Added To Collection
+        </button>
       ) : (
-        <button onClick={handleCollection} className="px-2 py-1 bg-blue-400">
+        <button onClick={handleClick} className="btn btn-neutral hover:btn-success rounded w-full">
+          <Heart size={16} weight="fill" />
           Add To Collection
         </button>
       )}

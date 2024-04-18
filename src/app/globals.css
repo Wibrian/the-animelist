@@ -8,13 +8,32 @@
   box-sizing: border-box;
 }
 
-.test {
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #474747;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.scale {
   transition: 0.2s ease all;
 }
 
-.test:hover {
-  scale: 102%;
-}
+/* .custom-width {
+  max-width: 32rem;
+} */
 
 .custom-loader {
   width: 50px;
