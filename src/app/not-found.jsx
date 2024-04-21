@@ -1,19 +1,17 @@
 "use client";
 
-import { SmileyXEyes } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen max-w-xl mx-auto flex flex-col justify-center items-center text-blue-400 gap-1">
-      <div className="flex flex-col justify-center items-center gap-2 ">
-        <SmileyXEyes size={72} />
-        <h3 className="text-3xl font-bold">[404] NOT FOUND</h3>
-      </div>
-      <button onClick={() => router.back()} className="hover:text-white transition-all">
-        BACK TO MAIN PAGE
+    <div className="flex flex-col justify-center items-center min-h-screen gap-2">
+      <span className="loading loading-ring loading-lg"></span>
+      <p>There's Nothing Here Haiyaa! ┐(´д`)┌</p>
+      <p className="font-bold text-center">You're Lost! [404]</p>
+      <button className="btn btn-neutral hover:btn-success rounded" onClick={() => router.back()}>
+        Back To Main Page
       </button>
     </div>
   );

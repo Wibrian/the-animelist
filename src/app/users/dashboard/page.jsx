@@ -1,5 +1,6 @@
 import Header from "@/components/Dashboard/Header";
 import { authUserSession } from "@/library/auth-libs";
+import prisma from "@/library/prisma";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -36,20 +37,25 @@ export default async function Page() {
       <article className="col-span-4">
         <div className="pb-3">
           <Header title="My Collections" />
-          <div className="grid grid-cols-5 gap-3">
-            {limitCollection.map((collect, index) => {
-              return (
-                <Link key={index} href={`/anime/${collect.anime_mal_id}`} className="card w-auto shadow-xl rounded-md scale transition-all hover:text-white bg-neutral">
-                  <figure>
-                    <Image src={collect.anime_image} width={1000} height={1000} alt="Anime Pict" loading="lazy" />
-                  </figure>
-                  <div className="card-body p-2.5 gap-1">
-                    <h2 className="card-title leading-6 text-base">{collect.anime_title}</h2>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+          {collection.length === 0 ? (
+            <p>You Have No Any Anime Collections (T⌓T)</p>
+          ) : (
+            <div className="grid grid-cols-5 gap-3">
+              {limitCollection.map((collect, index) => {
+                return (
+                  <Link key={index} href={`/anime/${collect.anime_mal_id}`} className="card w-auto shadow-xl rounded-md scale transition-all hover:text-white bg-neutral">
+                    <figure>
+                      <Image src={collect.anime_image} width={1000} height={1000} alt="Anime Pict" loading="lazy" />
+                    </figure>
+                    <div className="card-body p-2.5 gap-1">
+                      <h2 className="card-title leading-6 text-base">{collect.anime_title}</h2>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+
           {collection.length <= 5 ? null : (
             <Link href="/users/dashboard/collection" className="btn btn-neutral hover:btn-info mt-3 rounded w-full">
               See All Collection
@@ -59,7 +65,7 @@ export default async function Page() {
         <div>
           <Header title="My Comments" />
           {comments.length === 0 ? (
-            <div className="text-white">YOU HAVE NO COMMENTS</div>
+            <p>You Have No Any Comments (Ｔ▽Ｔ)</p>
           ) : (
             <div className="grid grid-cols-3 gap-4 ">
               {limitComments.map((comment) => {

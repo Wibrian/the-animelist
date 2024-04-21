@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Collection {
+model collection {
   id            Int @id @default(autoincrement())
   anime_mal_id  String 
   user_email    String
@@ -23,7 +23,7 @@ model Collection {
   @@unique([user_email, anime_mal_id])
 }
 
-model Comment {
+model comment {
   id            Int @id @default(autoincrement())
   anime_mal_id  String
   user_email    String

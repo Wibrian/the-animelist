@@ -160,7 +160,7 @@ export default async function Page({ params: { id } }) {
         </div>
         <div>
           <h3 className="text-xl font-bold pb-1 mb-2 border-b-[1px] border-slate-600">Background</h3>
-          <p className="text-justify text-md">{anime.data.background}</p>
+          <p className="text-justify text-md">{anime.data.background ? anime.data.background : "No Information Yet."}</p>
         </div>
         <Characters character={character} />
         <div>
