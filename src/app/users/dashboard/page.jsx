@@ -21,12 +21,19 @@ export default async function Page() {
   const limitComments = comments.slice(0, 3);
 
   function formatDate(date) {
-    return new Intl.DateTimeFormat("en-US", { day: "numeric", month: "long", year: "numeric", hour: "numeric", minute: "numeric", hour12: false }).format(date);
+    return new Intl.DateTimeFormat("en-US", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: false,
+    }).format(date);
   }
 
   return (
-    <section className="grid grid-cols-5 mt-5 mx-5 gap-3">
-      <aside className="flex flex-col gap-2">
+    <section className="grid grid-cols-1 lg:grid-cols-5 mt-5 mx-5 gap-3">
+      <aside className="flex flex-col gap-2 col-span-4 lg:col-span-1">
         <h3 className="badge border-none bg-neutral w-full text-xl font-bold rounded p-5">{user.name}</h3>
         <img src={user.image} alt="profile" className="rounded" />
         <p className="badge border-none bg-neutral w-full h-auto rounded p-2 text-center">
@@ -40,10 +47,13 @@ export default async function Page() {
           {collection.length === 0 ? (
             <p>You Have No Any Anime Collections (T⌓T)</p>
           ) : (
-            <div className="grid grid-cols-5 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
               {limitCollection.map((collect, index) => {
                 return (
-                  <Link key={index} href={`/anime/${collect.anime_mal_id}`} className="card w-auto shadow-xl rounded-md scale transition-all hover:text-white bg-neutral">
+                  <Link
+                    key={index}
+                    href={`/anime/${collect.anime_mal_id}`}
+                    className="card w-auto shadow-xl rounded-md scale transition-all hover:text-white bg-neutral">
                     <figure>
                       <Image src={collect.anime_image} width={1000} height={1000} alt="Anime Pict" loading="lazy" />
                     </figure>
@@ -67,7 +77,7 @@ export default async function Page() {
           {comments.length === 0 ? (
             <p>You Have No Any Comments (Ｔ▽Ｔ)</p>
           ) : (
-            <div className="grid grid-cols-3 gap-4 ">
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 ">
               {limitComments.map((comment) => {
                 return (
                   <Link href={`/anime/${comment.anime_mal_id}`} key={comment.id} className="transition-all hover:text-white">

@@ -4,14 +4,18 @@ import Header from "@/components/AnimeList/Header";
 import Pagination from "@/components/Utilities/Pagination";
 import { useEffect, useState } from "react";
 import { getAnimeResponse } from "../../library/api-lib";
+import Loading from "../loading";
 
 export default function Page() {
   const [page, setPage] = useState(1);
   const [topAnime, setTopAnime] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const fetchData = async () => {
-    const popularAnime = await getAnimeResponse("top/anime", `page=${page}`);
+    setLoading(true);
+    const popularAnime = await getAnimeResponse(`top/anime?page=${page}`);
     setTopAnime(popularAnime);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -20,8 +24,14 @@ export default function Page() {
 
   return (
     <div>
-      <Header title={`Popular Anime #${page}`} />
-      <AnimeList api={topAnime} />
+      <Header title={`Popular Anime Page ${page}`} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <AnimeList api={topAnime} />
+        </>
+      )}
       <Pagination page={page} lastPage={topAnime.pagination?.last_visible_page} setPage={setPage} />
     </div>
   );

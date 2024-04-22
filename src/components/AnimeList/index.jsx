@@ -7,7 +7,10 @@ export default function AnimeList({ api }) {
     <div className="grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 grid-cols-2 gap-3 p-5">
       {api.data?.map((anime) => {
         return (
-          <Link href={`/anime/${anime.mal_id}`} className="card w-auto shadow-xl rounded-md scale transition-all hover:text-white bg-neutral" key={anime.mal_id}>
+          <Link
+            href={`/anime/${anime.mal_id}`}
+            className="card w-auto shadow-xl rounded-md scale transition-all hover:text-white bg-neutral"
+            key={anime.mal_id}>
             <figure>
               <Image src={anime.images.webp.large_image_url} width={1000} height={1000} alt="Anime Pict" loading="lazy" />
             </figure>

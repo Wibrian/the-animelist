@@ -14,7 +14,7 @@ export default function Footer() {
       </aside>
       <nav>
         <h6 className="footer-title">Build with</h6>
-        <Source link="https://nextjs.org" title="Next.JS" />
+        <Source link="https://nextjs.org" title="NextJS" />
         <Source link="https://tailwindcss.com" title="Tailwind CSS" />
         <Source link="https://daisyui.com" title="daisyUI" />
         <Source link="https://aws.amazon.com/rds" title="Amazon RDS (MySQL)" />
