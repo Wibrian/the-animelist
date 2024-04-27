@@ -9,7 +9,7 @@ export default async function Page({ params }) {
   // const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${decodedKeyword}`);
   // const searchAnime = await response.json();
 
-  const searchAnime = await getAnimeResponse(`anime?q=${decodedKeyword}&sfw=true`);
+  const searchAnime = await getAnimeResponse(`anime?q=${decodedKeyword}&sfw=false`);
 
   return (
     <section>

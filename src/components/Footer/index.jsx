@@ -4,12 +4,13 @@ import Source from "./Source";
 
 export default function Footer() {
   return (
-    <footer className="footer py-10 px-5 text-base-content mt-3 border-t border-slate-600 ">
-      <aside>
+    <footer className="footer grid-cols-1 lg:grid-cols-5 py-10 px-5 text-base-content mt-3 border-t border-slate-600 ">
+      <aside className="col-span-0 lg:col-span-2">
         <p>
           <strong className="text-xl">NEXT Anime List</strong>
           <br />
-          The next simple anime list
+          The next simple anime list, add your favorite anime into your collection and share your experience about the anime in the comment section.
+          (◕‿◕)
         </p>
       </aside>
       <nav>
@@ -17,7 +18,7 @@ export default function Footer() {
         <Source link="https://nextjs.org" title="NextJS" />
         <Source link="https://tailwindcss.com" title="Tailwind CSS" />
         <Source link="https://daisyui.com" title="daisyUI" />
-        <Source link="https://aws.amazon.com/rds" title="Amazon RDS (MySQL)" />
+        <Source link="https://aws.amazon.com/rds" title="Amazon RDS" />
       </nav>
       <nav>
         <h6 className="footer-title">Source</h6>
