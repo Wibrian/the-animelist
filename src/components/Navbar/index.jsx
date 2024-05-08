@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <header className="navbar px-5 shadow-white border-b border-slate-600 max-h-[32px] md:max-h-[64px]">
       <div className="flex-1">
-        <Link href="/" className="btn btn-ghost lg:text-xl p-0 hover:bg-transparent hover:text-white">
+        <Link href="/" className="btn btn-ghost lg:text-xl p-0 hover:bg-transparent hover:text-info">
           NEXT Anime List
         </Link>
       </div>

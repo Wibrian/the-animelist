@@ -30,7 +30,13 @@ export default function InputSearch() {
         </div>
         <div tabIndex={0} className="mt-4 z-[1] card card-compact dropdown-content w-56 bg-none shadow">
           <div className="p-2rounded-xl">
-            <input type="text" placeholder="Search Anime..." className="input input-bordered w-full bg-neutral h-10" ref={searchRef} onKeyDown={handleSearchInput} />
+            <input
+              type="text"
+              placeholder="Search Anime..."
+              className="input input-bordered w-full bg-base-300 h-10"
+              ref={searchRef}
+              onKeyDown={handleSearchInput}
+            />
             {/* can add some button element here with "onClick={inputSearch} */}
           </div>
         </div>

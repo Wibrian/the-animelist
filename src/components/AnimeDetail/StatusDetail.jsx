@@ -3,7 +3,7 @@ import StatusData from "./StatusData";
 
 export default function StatusDetail({ anime }) {
   return (
-    <div className="stats stats-vertical md:stats-horizontal shadow bg-neutral rounded">
+    <div className="stats stats-vertical md:stats-horizontal shadow bg-base-300 rounded">
       <StatusData
         icon={<ChartBar size={32} weight="bold" />}
         statTitle={"SCORE"}

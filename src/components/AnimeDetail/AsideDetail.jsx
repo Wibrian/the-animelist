@@ -6,9 +6,9 @@ export default async function AsideDetail({ anime }) {
   const capitalizedSeason = season?.charAt(0).toUpperCase() + season?.slice(1);
 
   return (
-    <article className="bg-neutral p-2 rounded">
+    <article className="bg-base-300 p-2 rounded">
       <section className="pb-4">
-        <h4 className="border-b-[1px] border-slate-600 font-bold mb-2 text-white">Alternative Titles</h4>
+        <h4 className="border-b-[1px] border-slate-600 font-bold mb-2">Alternative Titles</h4>
         <div className="text-sm">
           <AsideData text={"Synonyms"} name={anime.data.title_synonyms} />
           <AsideData text={"English"} name={anime.data.title_english} />
@@ -16,7 +16,7 @@ export default async function AsideDetail({ anime }) {
         </div>
       </section>
       <div className="pb-2">
-        <h4 className="border-b-[1px] border-slate-600 font-bold mb-2 text-white">Information</h4>
+        <h4 className="border-b-[1px] border-slate-600 font-bold mb-2">Information</h4>
         <article className="text-sm">
           <AsideData text={"Type"} name={anime.data.type} />
           <AsideData text={"Episode"} name={anime.data.episodes} />

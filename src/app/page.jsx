@@ -13,7 +13,7 @@ function shuffleArray(array) {
 export default async function Page() {
   const topAnime = await getAnimeResponse("top/anime?limit=10");
   let thisSeason = await getAnimeResponse("seasons/now");
-  console.log(thisSeason.data);
+  // console.log(thisSeason.data);
   let recommendAnime = await getNestedAnimeResponse("recommendations/anime", "entry");
   // console.log(recommendAnime);
   recommendAnime = reproduce(recommendAnime, 5);

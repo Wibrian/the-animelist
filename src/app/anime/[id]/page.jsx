@@ -24,7 +24,7 @@ export default async function Page({ params: { id } }) {
   return (
     <div className="p-5 grid grid-cols-1 lg:grid-cols-4 gap-3 max-w-[1900px] m-auto">
       <article className="flex flex-col gap-[5px] max-w-full col-span-4 lg:col-span-1">
-        <h3 className="badge border-none bg-neutral text-lg w-full h-auto rounded font-bold leading-6 p-2">{anime.data.title}</h3>
+        <h3 className="badge border-none bg-base-300 text-lg w-full h-auto rounded font-bold leading-6 p-2">{anime.data.title}</h3>
         <img src={anime.data.images.webp.large_image_url} className="object-fit rounded" />
         {/* {!collection && user && (
           <CollectionButton

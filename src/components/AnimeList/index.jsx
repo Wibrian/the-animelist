@@ -9,7 +9,7 @@ export default function AnimeList({ api }) {
         return (
           <Link
             href={`/anime/${anime.mal_id}`}
-            className="card w-auto shadow-xl rounded-md scale transition-all hover:text-white bg-neutral"
+            className="card w-auto shadow-md rounded-md scale transition-all hover:text-success bg-base-300"
             key={anime.mal_id}>
             <figure>
               <Image src={anime.images.webp.large_image_url} width={1000} height={1000} alt="Anime Pict" loading="lazy" />
@@ -27,7 +27,7 @@ export default function AnimeList({ api }) {
                 <div className="badge badge-warning text-neutral border-none h-auto rounded">{anime.source}</div>
                 {anime.genres?.map((genre, index) => {
                   return (
-                    <div key={index} className="badge bg-gray-600 border-none h-auto rounded">
+                    <div key={index} className="badge bg-base-100 border-none h-auto rounded">
                       {genre.name}
                     </div>
                   );

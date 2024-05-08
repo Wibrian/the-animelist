@@ -24,7 +24,7 @@ export default function Characters({ character }) {
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 transition-all">
         {character.data.slice(0, displayCount).map((chara, index) => {
           return (
-            <div key={index} className="card card-side bg-neutral shadow-xl rounded max-h-[180px]">
+            <div key={index} className="card card-side bg-base-300 shadow-md rounded max-h-[180px]">
               <figure>
                 <img src={chara.character.images.webp.image_url} alt="Character" className="h-full w-auto" />
               </figure>
@@ -55,13 +55,13 @@ export default function Characters({ character }) {
       </div>
       {displayCount < character.data.length ? (
         <div className="grid grid-cols-3 gap-3 mt-3">
-          <button onClick={handleShowAll} className="btn btn-neutral hover:btn-info rounded">
+          <button onClick={handleShowAll} className="btn bg-base-300 shadow-md hover:btn-info rounded border-none">
             Show All
           </button>
-          <button onClick={handleShowMore} className="btn btn-neutral hover:btn-success rounded">
+          <button onClick={handleShowMore} className="btn bg-base-300 shadow-md hover:btn-success rounded border-none">
             Show More
           </button>
-          <button onClick={handleShowLess} className="btn btn-neutral hover:btn-error rounded">
+          <button onClick={handleShowLess} className="btn bg-base-300 shadow-md hover:btn-error rounded border-none">
             Show Less
           </button>
         </div>
